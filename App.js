@@ -5,7 +5,7 @@ import Checked from './src/svg/Checked';
 import Porco from './src/svg/Porco';
 import Unchecked from './src/svg/Unchecked';
 
-
+// Funciona para fazer listas de ingredientes
 export default function App() {
   const [teste, setTeste] = useState(["a", "Teste"]);
 
@@ -17,9 +17,16 @@ export default function App() {
       <TouchableOpacity onPress={() => {teste.includes("Teste", undefined) ? setTeste(teste.filter((i) => i != "Teste" )) : setTeste(teste.concat("Teste"))}}>
         {teste.includes("Teste", undefined) ? <Checked/> : <Unchecked/>}
         <Text>
-          {teste}
+          Teste
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => {teste.includes("Tst2", undefined) ? setTeste(teste.filter((i) => i != "Tst2" )) : setTeste(teste.concat("Tst2"))}}>
+        {teste.includes("Tst2", undefined) ? <Checked/> : <Unchecked/>}
+        <Text>
+          Tst2
+        </Text>
+      </TouchableOpacity>
+      <Text>{teste}</Text>
     </View>
   );
 }
