@@ -5,8 +5,10 @@ import Dropdown from '../Components/Dropdown';
 import ItemDropdown from '../Components/ItemDropdown';
 import Fontes from '../Styles/Fontes';
 import Fundos from '../Styles/Fundos';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function EscolhaCarnes() {
+export default function EscolhaCarnes({ navigation }) {
   const [itensSel, setItensSel] = useState([]);
   const [visivelVer, setVisivelVer] = useState(false);
   const [visivelBra, setVisivelBra] = useState(false);
@@ -71,7 +73,7 @@ export default function EscolhaCarnes() {
                 Voltar
             </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
+        <TouchableOpacity onPress={() => navigation.navigate('Bebidas')} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
             <Text style={Fontes.escritaPrimaria}>
                 Próximo
             </Text>
