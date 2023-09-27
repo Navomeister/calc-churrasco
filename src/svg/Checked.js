@@ -3,7 +3,7 @@ import Svg, { Path } from "react-native-svg"
 const Checked = (props) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
-    width={48}
+    width={30}
     height={36}
     fill="none"
     strokeWidth={5}

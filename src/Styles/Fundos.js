@@ -16,4 +16,6 @@ const Fundos = StyleSheet.create({
 
     },
 
-})
+});
+
+export default Fundos;
