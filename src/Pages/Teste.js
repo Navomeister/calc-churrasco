@@ -6,9 +6,9 @@ import Fundos from "../Styles/Fundos";
 export default function Teste({navigation}){
     return(
         <SafeAreaView>
-            <StatusBar style="auto" />
-            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Carnes")}><Text>Calculadora</Text></TouchableOpacity>
-            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Teste")}><Text>Receitas</Text></TouchableOpacity>
+            <StatusBar style="auto"/>
+            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Home")}><Text>Voltar</Text></TouchableOpacity>
+            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Teste2")}><Text>Próximo</Text></TouchableOpacity>
         </SafeAreaView>
     )
 }

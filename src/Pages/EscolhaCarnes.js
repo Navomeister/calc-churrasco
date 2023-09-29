@@ -81,7 +81,7 @@ export default function EscolhaCarnes({ navigation, route }) {
       </View>
       {/* Botões Navegação */}
       <View style={styles.caixaNavegacao}>
-        <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
             <Text style={Fontes.escritaPrimaria}>
                 Voltar
             </Text>

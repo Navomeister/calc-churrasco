@@ -1,9 +1,14 @@
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, SafeAreaView, StyleSheet, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import Fundos from "../Styles/Fundos";
 
 
-export default function Teste2({navigator}){
+export default function Teste2({navigation}){
     return(
-        <TouchableOpacity onPress={navigator.navigate("Teste")}>Voltar</TouchableOpacity>
+        <SafeAreaView>
+            <StatusBar style="auto"/>
+            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Teste")}><Text>Voltar</Text></TouchableOpacity>
+        </SafeAreaView>
     )
 }
 
