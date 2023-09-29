@@ -5,14 +5,13 @@ import Dropdown from '../Components/Dropdown';
 import ItemDropdown from '../Components/ItemDropdown';
 import Fontes from '../Styles/Fontes';
 import Fundos from '../Styles/Fundos';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function EscolhaCarnes({ navigation }) {
+export default function EscolhaCarnes({ navigation, route }) {
   const [itensSel, setItensSel] = useState([]);
   const [visivelVer, setVisivelVer] = useState(false);
   const [visivelBra, setVisivelBra] = useState(false);
   const [visivelSui, setVisivelSui] = useState(false);
+  const [visivelEtc, setVisivelEtc] = useState(false);
 
   const renderDropdownVermelha = () => {
     if (visivelVer) {
@@ -48,6 +47,18 @@ export default function EscolhaCarnes({ navigation }) {
     }
   };
 
+  const renderDropdownOutros = () => {
+    if (visivelEtc) {
+      return (
+        <View style={styles.caixa}>
+          <ItemDropdown texto={"Pão de Alho"} itensSel={itensSel} setItensSel={setItensSel}/>
+          <ItemDropdown texto={"Queijo Coalho"} itensSel={itensSel} setItensSel={setItensSel}/>
+          <ItemDropdown texto={"Farofa"} itensSel={itensSel} setItensSel={setItensSel}/>
+        </View>
+      );
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
@@ -64,6 +75,8 @@ export default function EscolhaCarnes({ navigation }) {
           {renderDropdownBranca()}
           <Dropdown visivel={visivelSui} setVisivel={setVisivelSui} icone={"Porco"} texto={"Suína"}/>
           {renderDropdownSuina()}
+          <Dropdown visivel={visivelEtc} setVisivel={setVisivelEtc} icone={"Espetinho"} texto={"Outros"}/>
+          {renderDropdownOutros()}
         </ScrollView>
       </View>
       {/* Botões Navegação */}
@@ -73,13 +86,13 @@ export default function EscolhaCarnes({ navigation }) {
                 Voltar
             </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Bebidas')} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
+        <TouchableOpacity onPress={() => navigation.navigate('Bebidas', {itens: itensSel})} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
             <Text style={Fontes.escritaPrimaria}>
                 Próximo
             </Text>
         </TouchableOpacity>
+
       </View>
-      
     </SafeAreaView>
   );
 }
@@ -96,7 +109,7 @@ const styles = StyleSheet.create({
   },
 
   caixaTitulo:{
-    flex: 2,
+    flex: 1,
     justifyContent: 'center',
 
   },

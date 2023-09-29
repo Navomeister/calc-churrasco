@@ -1,3 +1,4 @@
+
 import Adulto from "../svg/Adulto";
 import Agua from "../svg/Agua";
 import Cerveja from "../svg/Cerveja";
@@ -12,6 +13,8 @@ import Suco from "../svg/Suco";
 import Unchecked from "../svg/Unchecked";
 import Vaca from "../svg/Vaca";
 import Vinho from "../svg/Vinho";
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 
 export default function ReturnSvg({svg}){
@@ -90,6 +93,7 @@ export default function ReturnSvg({svg}){
         else if (svg == "Vaca") {
             return(
                 <Vaca/>
+                // <Icon name="cow" size={50} color="#fff" />
             );
         } 
     
@@ -98,4 +102,8 @@ export default function ReturnSvg({svg}){
                 <Vinho/>
             );
         } 
+
+        else if ("Barras") {
+            <Icon name="bars"/>
+        }
 }
