@@ -1,13 +1,15 @@
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, SafeAreaView, StyleSheet, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import Fundos from "../Styles/Fundos";
 
 
-export default function Teste({navigator}){
+export default function Teste({navigation}){
     return(
-        <View>
-            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={navigator.navigate("Calculadora")}>Calculadora</TouchableOpacity>
-            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={navigator.navigate("Receitas")}>Receitas</TouchableOpacity>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <StatusBar style="auto" />
+            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Calculadora")}><Text>Calculadora</Text></TouchableOpacity>
+            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Receitas")}><Text>Receitas</Text></TouchableOpacity>
+        </SafeAreaView>
     )
 }
 
@@ -15,7 +17,9 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      padding: 25,
     },
   
     caixa: {
@@ -43,7 +47,7 @@ const styles = StyleSheet.create({
     },
   
     botoesNavegacao: {
-      borderRadius: 5,
+      borderRadius: 10,
       width: 125,
       height: 45,
       alignItems: 'center',
