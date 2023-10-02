@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { BallIndicator } from 'react-native-indicators';
-import TelaInicial from '../TelaInicial'; // 2ª tela
+import TelaInicial from './TelaInicial'; // 2ª tela
 import { StatusBar } from "expo-status-bar";
 
 function HomeScreen({navigation}) {

@@ -19,17 +19,17 @@ export default function ModalMenu({navigation, modalVisible, setModalVisible}) {
                 <View>
                     <View style={{backgroundColor: '#aaa', width: 200, height: 1}}/>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Teste")}
+                        onPress={() => navigation.navigate("Receitas")}
                         style={styles.botoes}
                     >
-                        <Text style={[Fontes.escritaSecundaria, {textAlign: 'center'}]}>Teste</Text>
+                        <Text style={[Fontes.tituloSecundaria, {textAlign: 'center'}]}>Receitas</Text>
                     </TouchableOpacity>
                     <View style={{backgroundColor: '#aaa', width: 200, height: 1}}/>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Carnes")}
+                        onPress={() => navigation.navigate("Calculadora")}
                         style={styles.botoes}
                     >
-                        <Text style={[Fontes.escritaSecundaria, {textAlign: 'center'}]}>Calculadora</Text>
+                        <Text style={[Fontes.tituloSecundaria, {textAlign: 'center'}]}>Calculadora</Text>
                     </TouchableOpacity>
                     <View style={{backgroundColor: '#aaa', width: 200, height: 1}}/>
                 </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
       marginLeft: 150,
     },
     botoes: {
-        height: 50,
+        height: 60,
         justifyContent: 'center',
         width: 200
     }

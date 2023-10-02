@@ -1,15 +1,13 @@
-import EscolhaCarnes from './src/Pages/EscolhaCarnes';
-import EscolhaBebidas from './src/Pages/EscolhaBebidas';
 import Home from './src/Pages/Home';
-import Teste from './src/Pages/Teste';
-import Teste2 from './src/Pages/Teste2';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ModalMenu from './src/Components/ModalMenu';
 import { useState } from 'react';
-import HomeScreen from './src/Pages/Home/index';
+import NavHome from './src/routes/HomeStack';
+import CalcStack from './src/routes/CalcStack';
+import RecStack from './src/routes/RecStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +15,7 @@ export default function App() {
   const [modalVisible, setModalVisible] = useState(false)
   return(
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home'
+        <Stack.Navigator initialRouteName='HomeStack'
                          screenOptions={({route, navigation}) => 
                                       ({ headerLeft: () => (<Image style={styles.imagemLogo} source={require("./src/img/Logo.png")}/>), 
                                          headerTitle: "", 
@@ -28,15 +26,13 @@ export default function App() {
                                          </View>
                                          ), 
                                          animation: 'slide_from_right'  })}>
-          <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+          <Stack.Screen name="HomeStack" component={NavHome} options={{headerShown: false}} />
           
           <Stack.Screen name='Home2' component={Home}/>
 
-          <Stack.Screen name='Teste' component={Teste}/>
-          <Stack.Screen name='Teste2' component={Teste2}/>
+          <Stack.Screen name='Receitas' component={RecStack}/>
 
-          <Stack.Screen name='Carnes' component={EscolhaCarnes}/>
-          <Stack.Screen name='Bebidas' component={EscolhaBebidas}/>
+          <Stack.Screen name='Calculadora' component={CalcStack}/>
         </Stack.Navigator>
         
       </NavigationContainer>
