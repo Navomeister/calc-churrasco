@@ -11,11 +11,11 @@ import lombofoto from '../../img/lomboporco.png'
 
 function HomeScreen({ navigation }) {
   const data = [
-    { id: '1', title: 'Asa de Frango', photos: `${asafrango}`, subT: '11 ingredientes | 45 min', name: 'Asa de Frango' },
-    { id: '2', title: 'Picanha Recheada', photos: `${yakisoba}`, subT: '15 ingredientes | 50 min', name: 'yakisoba'},
-    { id: '3', title: 'Frango com Crosta de Castanhas', photos: `${frangocastanha}`, subT: '7 ingredientes | 6min', name: 'Frango Castanha' },
-    { id: '4', title: 'Salmão Grelhado', photos: `${salmaofoto}`, subT: '7 ingredientes | 8 min', name: 'Salmao Grelhado' },
-    { id: '5', title: 'Lombo de Porco ', photos: `${lombofoto}`, subT: '10 ingredientes | 1h', name: 'Lombo de Porco' },
+    { id: '1', title: 'Asa de Frango', photos: asafrango, subT: '11 ingredientes | 45 min', name: 'Asa de Frango' },
+    { id: '2', title: 'Picanha Recheada', photos: yakisoba, subT: '15 ingredientes | 50 min', name: 'yakisoba'},
+    { id: '3', title: 'Frango com Crosta de Castanhas', photos: frangocastanha, subT: '7 ingredientes | 6min', name: 'Frango Castanha' },
+    { id: '4', title: 'Salmão Grelhado', photos: salmaofoto, subT: '7 ingredientes | 8 min', name: 'Salmao Grelhado' },
+    { id: '5', title: 'Lombo de Porco ', photos: lombofoto, subT: '10 ingredientes | 1h', name: 'Lombo de Porco' },
   ];
 
   return (
@@ -30,8 +30,6 @@ function HomeScreen({ navigation }) {
         showVerticalScrollIndicator={false}
         renderItem= { ({ item }) => (
           <View style={styles.item}>
-
-           
             <TouchableOpacity onPress={() => navigation.navigate(`${item.name}`)}>
               <ImageBackground style={styles.imagemF}  source={item.photos}> 
                 <Text style={styles.titulo}>{item.title}</Text>

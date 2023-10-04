@@ -1,5 +1,7 @@
 import EscolhaBebidas from '../Pages/Calculadora/EscolhaBebidas';
 import EscolhaCarnes from '../Pages/Calculadora/EscolhaCarnes';
+import Lista from '../Pages/Calculadora/Lista';
+import Form from '../Pages/Calculadora/Form';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
@@ -14,6 +16,9 @@ export default function CalcStack() {
           }}>
           <Stack.Screen name='Carnes' component={EscolhaCarnes}/>
           <Stack.Screen name='Bebidas' component={EscolhaBebidas}/>
+          <Stack.Screen name='Listachurrasco' component={Lista}/>
+          <Stack.Screen name='Formchurrasco' component={Form}/>
+          
         </Stack.Navigator>
   );
 }

@@ -35,7 +35,7 @@ export default function EscolhaBebidas({ navigation, route }){
                         Voltar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
+                <TouchableOpacity onPress={() => navigation.navigate('Listachurrasco', {itens: itens, bebidas: bebidasSel})} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
                     <Text style={Fontes.escritaPrimaria}>
                         Próximo
                     </Text>
