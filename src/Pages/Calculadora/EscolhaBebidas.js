@@ -8,7 +8,7 @@ import Linha from '../../Components/Linha';
 
  
 export default function EscolhaBebidas({ navigation, route }){
-    const {itens} = route.params;
+    const {adultos, criancas, itens} = route.params;
     const [bebidasSel, setBebidasSel] = useState([]);
 
     return(
@@ -35,7 +35,7 @@ export default function EscolhaBebidas({ navigation, route }){
                         Voltar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Listachurrasco', {itens: itens, bebidas: bebidasSel})} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
+                <TouchableOpacity onPress={() => navigation.navigate('Listachurrasco', {adultos: adultos, criancas: criancas, itens: itens, bebidas: bebidasSel})} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
                     <Text style={Fontes.escritaPrimaria}>
                         Próximo
                     </Text>

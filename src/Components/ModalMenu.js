@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
 import Modal from "react-native-modal";
 import Fontes from "../Styles/Fontes";
+import Fundos from "../Styles/Fundos";
 import Icon from "react-native-vector-icons/Feather";
 
 export default function ModalMenu({navigation, modalVisible, setModalVisible}) {
@@ -18,19 +19,19 @@ export default function ModalMenu({navigation, modalVisible, setModalVisible}) {
                 </View>
                 <View>
                     <View style={{backgroundColor: '#aaa', width: 200, height: 1}}/>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate("Receitas")}
-                        style={styles.botoes}
-                    >
-                        <Text style={[Fontes.tituloSecundaria, {textAlign: 'center'}]}>Receitas</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Receitas")}
+                            style={styles.botoes}
+                        >
+                            <Text style={[Fontes.tituloSecundaria, {textAlign: 'center'}]}>Receitas</Text>
+                        </TouchableOpacity>
                     <View style={{backgroundColor: '#aaa', width: 200, height: 1}}/>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate("Calculadora")}
-                        style={styles.botoes}
-                    >
-                        <Text style={[Fontes.tituloSecundaria, {textAlign: 'center'}]}>Calculadora</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Calculadora")}
+                            style={styles.botoes}
+                        >
+                            <Text style={[Fontes.tituloSecundaria, {textAlign: 'center'}]}>Calculadora</Text>
+                        </TouchableOpacity>
                     <View style={{backgroundColor: '#aaa', width: 200, height: 1}}/>
                 </View>
             </Modal>

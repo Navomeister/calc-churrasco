@@ -8,6 +8,8 @@ import Fundos from '../../Styles/Fundos';
 
 export default function EscolhaCarnes({ navigation, route }) {
   const [itensSel, setItensSel] = useState([]);
+  const {adultos, criancas} = route.params
+
   const [visivelVer, setVisivelVer] = useState(false);
   const [visivelBra, setVisivelBra] = useState(false);
   const [visivelSui, setVisivelSui] = useState(false);
@@ -41,7 +43,7 @@ export default function EscolhaCarnes({ navigation, route }) {
         <View style={styles.caixa}>
           <ItemDropdown texto={"Costela"} itensSel={itensSel} setItensSel={setItensSel}/>
           <ItemDropdown texto={"Linguiça"} itensSel={itensSel} setItensSel={setItensSel}/>
-          <ItemDropdown texto={"Pururuca"} itensSel={itensSel} setItensSel={setItensSel}/>
+          <ItemDropdown texto={"Lombo"} itensSel={itensSel} setItensSel={setItensSel}/>
         </View>
       );
     }
@@ -53,7 +55,6 @@ export default function EscolhaCarnes({ navigation, route }) {
         <View style={styles.caixa}>
           <ItemDropdown texto={"Pão de Alho"} itensSel={itensSel} setItensSel={setItensSel}/>
           <ItemDropdown texto={"Queijo Coalho"} itensSel={itensSel} setItensSel={setItensSel}/>
-          <ItemDropdown texto={"Farofa"} itensSel={itensSel} setItensSel={setItensSel}/>
         </View>
       );
     }
@@ -81,12 +82,12 @@ export default function EscolhaCarnes({ navigation, route }) {
       </View>
       {/* Botões Navegação */}
       <View style={styles.caixaNavegacao}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home2')} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
+        <TouchableOpacity onPress={() => navigation.navigate('Pessoas')} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
             <Text style={Fontes.escritaPrimaria}>
                 Voltar
             </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Bebidas', {itens: itensSel})} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
+        <TouchableOpacity onPress={() => navigation.navigate('Bebidas', {adultos: adultos, criancas: criancas, itens: itensSel})} style={[styles.botoesNavegacao, Fundos.fundoTerciario]}>
             <Text style={Fontes.escritaPrimaria}>
                 Próximo
             </Text>

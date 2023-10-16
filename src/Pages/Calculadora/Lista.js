@@ -2,26 +2,23 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
-import { View, Text, StyleSheet, Modal, ScrollView } from 'react-native';
-import Calculo from '../../Components/Calculo';
+import { View, Text, StyleSheet, Modal, SafeAreaView } from 'react-native';
 
 
 export default function Lista({ navigation, route }){
-  const {itens, bebidas} = route.params;
+  const {adultos, criancas, itens, bebidas} = route.params;
   const [modalVisible, setModalVisible] = useState(false);
 
-  const pessoas = {adultos: 10, criancas: 5};
-  const pessoasTotal = pessoas.adultos + pessoas.criancas;
+  // Determina quantidade a ser comprada
+  const pessoasTotal = parseInt(adultos) + parseInt(criancas);
   
-  const gramasAd = (500 / itens.length) * pessoas.adultos;
-  const gramasCri = (250 / itens.length) * pessoas.criancas;
+  const gramasAd = (500 / itens.length) * adultos;
+  const gramasCri = (250 / itens.length) * criancas;
   const kgTotal = (gramasAd + gramasCri) / 1000;
-
+  
   const carvaoTotal = 1.25 * kgTotal * itens.length;
   const descTotal = pessoasTotal * 4;
-
-  var maxLista = 7;
-
+  
   var tiposBebidas = bebidas.length;
   var bebidasAlcool = 0;
   if (bebidas.includes("Cerveja", undefined)) {
@@ -32,16 +29,97 @@ export default function Lista({ navigation, route }){
   if (bebidas.includes("Vinho", undefined)) {
       tiposBebidas -= 1;
       bebidasAlcool += 1;
+    }
+  
+  const lPessoas = ((750 / tiposBebidas) * (pessoasTotal)) / 1000;
+  const lAlcool = ((250 / bebidasAlcool) * (adultos)) / 1000;
+
+
+  // determina o preço por convidado
+  var precoTotal = 0;
+  for (let i = 0; i < itens.length; i++) {
+      switch (itens[i]) {
+          case "Patinho":
+              precoTotal += (kgTotal.toFixed(2) * 40.99);
+              break;
+      
+          case "Coxão Duro":
+              precoTotal += (kgTotal.toFixed(2) * 27.99);
+              break;
+      
+          case "Maminha":
+              precoTotal += (kgTotal.toFixed(2) * 27.99);
+              break;
+      
+          case "Asa":
+              precoTotal += (kgTotal.toFixed(2) * 18.89);
+              break;
+      
+          case "Coração":
+              precoTotal += (kgTotal.toFixed(2) * 29.90);
+              break;
+      
+          case "Peito":
+              precoTotal += (kgTotal.toFixed(2) * 12.49);
+              break;
+      
+          case "Costela":
+              precoTotal += (kgTotal.toFixed(2) * 49.00);
+              break;
+      
+          case "Linguiça":
+              precoTotal += (kgTotal.toFixed(2) * 33.99);
+              break;
+      
+          case "Lombo":
+              precoTotal += (kgTotal.toFixed(2) * 29.99);
+              break;
+      
+          case "Pão de Alho":
+              precoTotal += (kgTotal.toFixed(2) * 29.95);
+              break;
+      
+          case "Queijo Coalho":
+              precoTotal += (kgTotal.toFixed(2) * 65.90);
+              break;
+      
+          default:
+              break;
+      };
   }
 
-  const lPessoas = ((750 / tiposBebidas) * (pessoas.adultos + pessoas.criancas)) / 1000;
-  const lAlcool = ((250 / bebidasAlcool) * (pessoas.adultos)) / 1000;
+  for (let i = 0; i < bebidas.length; i++) {
+      switch (bebidas[i]) {
+          case "Suco":
+              precoTotal += (lPessoas * 10);
+              break;
+      
+          case "Cerveja":
+              precoTotal += (lAlcool * 10);
+              break;
+      
+          case "Vinho":
+              precoTotal += (lAlcool * 14.90);
+              break;
+      
+          case "Agua":
+              precoTotal += (lPessoas * 4.84);
+              break;
+      
+          default:
+              break;
+      };
+      
+  }
 
+  const precoPorAdulto = (precoTotal / adultos).toFixed(2);
+  console.log(precoPorAdulto);
 
+  var maxLista = 7;
 
   return (
     
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
     <StatusBar style="auto" />
       <Text style={styles.title}>{pessoasTotal} convidados</Text>
       <View style={styles.detalhes}>
@@ -117,11 +195,6 @@ export default function Lista({ navigation, route }){
       </View>
 
       <View style={styles.buttons}>
-        {/* <View>
-          <TouchableOpacity style={styles.confirmButton}>
-            <Text style={styles.buttonText}>Confirmar</Text>
-          </TouchableOpacity>
-        </View> */}
         <View style={styles.buttonsNavegacao}>
           <View style={styles.b1}>
             <TouchableOpacity onPress={() => navigation.pop()} style={styles.buttonsVoltar}>
@@ -129,7 +202,7 @@ export default function Lista({ navigation, route }){
             </TouchableOpacity>
           </View>
           <View style={styles.b2}>
-            <TouchableOpacity onPress={() => navigation.navigate('Formchurrasco', {itens: itens, bebidas: bebidas})} style={styles.buttonsProximos}>
+            <TouchableOpacity onPress={() => navigation.navigate('Formchurrasco', {preco: precoPorAdulto})} style={styles.buttonsProximos}>
               <Text style={styles.buttonProximo}>Próximo</Text>
             </TouchableOpacity>
           </View>
@@ -200,12 +273,8 @@ export default function Lista({ navigation, route }){
                     <Text style={styles.complemento}>{carvaoTotal.toFixed(2)} Kg</Text>
                   </View>
                   <View  style={styles.detalhes_comp}>
-                    <Text style={styles.complemento}>Copos Descartáveis</Text>
-                    <Text style={styles.complemento}>{descTotal}</Text>
-                  </View>
-                  <View  style={styles.detalhes_comp}>
-                    <Text style={styles.complemento}>Prato Descartáveis</Text>
-                    <Text style={styles.complemento}>{descTotal}</Text>
+                    <Text style={styles.complemento}>Descartáveis</Text>
+                    <Text style={styles.complemento}>{descTotal} Pares</Text>
                   </View>
                 </View>
 
@@ -226,7 +295,7 @@ export default function Lista({ navigation, route }){
 
       </Modal >
 
-    </View >
+    </SafeAreaView >
   );
 };
 

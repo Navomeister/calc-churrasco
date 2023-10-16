@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Share, Alert } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Share, Alert} from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 import Mapa from '../../Components/mapa';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Form({ navigation, route }) {
-  const {itens, bebidas} = route.params;
   const [endereco, setEndereco] = useState('');
-  const [preco, setPreco] = useState('');
+  const {preco} = route.params;
   const [nome, setNome] = useState('');
   const [numero, setNumero] = useState('');
   const [date, setDate] = useState('');
@@ -16,7 +16,7 @@ export default function Form({ navigation, route }) {
     // Aqui você pode adicionar a lógica para o envio do formulário
     console.log('Endereço:', endereco);
     console.log('Dia:', date);
-    console.log('Preço:', preco);
+    console.log('Preço:', String(preco).replace('.', ','));
     console.log('Nome:', nome);
     console.log('Número:', numero);
   };
@@ -39,6 +39,7 @@ export default function Form({ navigation, route }) {
 
   return (
     <View style={{ flex: 1, padding: 50, display: 'flex', justifyContent: 'space-between' }}>
+      <StatusBar style="auto" />
       <View>
         <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: -20 }}>
           <TextInput
@@ -75,7 +76,7 @@ export default function Form({ navigation, route }) {
         </View>
         
         <View style={{ display: 'flex', flexDirection: 'row', textAlign: 'center', alignItems: 'center', marginBottom: 15 }}>
-          <Text style={{ fontWeight: '700' }}>Preço: R$00,00</Text>
+          <Text style={{ fontWeight: '700' }}>Preço por Pessoa: R${String(preco).replace('.', ',')}</Text>
         </View>
 
         <View>

@@ -1,14 +1,19 @@
 import { TouchableOpacity, SafeAreaView, StyleSheet, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Fundos from "../Styles/Fundos";
+import Fontes from "../Styles/Fontes";
 
 
 export default function Teste({navigation}){
     return(
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" />
-            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Calculadora")}><Text>Calculadora</Text></TouchableOpacity>
-            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Receitas")}><Text>Receitas</Text></TouchableOpacity>
+            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Calculadora")}>
+              <Text style={Fontes.escritaPrimaria}>Calculadora</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.botoesNavegacao, Fundos.fundoTerciario]} onPress={() => navigation.navigate("Receitas")}>
+              <Text style={Fontes.escritaPrimaria}>Receitas</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
