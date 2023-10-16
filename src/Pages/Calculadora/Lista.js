@@ -113,7 +113,6 @@ export default function Lista({ navigation, route }){
   }
 
   const precoPorAdulto = (precoTotal / adultos).toFixed(2);
-  console.log(precoPorAdulto);
 
   var maxLista = 7;
 
