@@ -1,4 +1,4 @@
-import Home from './src/Pages/Home';
+import Home from './src/Pages/Home/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image, StyleSheet, View } from 'react-native';
