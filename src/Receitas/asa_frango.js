@@ -14,7 +14,7 @@ function Escondidinhocarne ( ) {
 
     title: 'Asa de Frango',
 
-    image: `${asafrango}`,
+    image: asafrango,
 
     prepTime: '30 minutos',
 
