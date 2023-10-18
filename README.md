@@ -18,6 +18,7 @@ Após especificar os detalhes, o aplicativo retornará a quantidade de alimento 
 O aplicativo também disponibiliza algumas receitas como sugestão, para que o usuário possa ter ideias novas para aprimorar seu evento.
 Em cada receita há uma foto ilustrativa, ingredientes, tempo de preparo e modo de fazer, para uma maior facilidade do usuário.
 
+_*Baseado em 500 gramas de alimento por adulto e 250 gramas por criança, mais 750 mililitros de bebida (+250 de bebida alcoólica por adulto, caso selecionado) por pessoa._
 
 # Participantes do projeto
 Elder Santos - https://github.com/elderlima7
