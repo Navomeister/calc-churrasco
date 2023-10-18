@@ -15,7 +15,7 @@ function Frangocastanha ( ) {
 
     title: 'Frango com Crosta de Castanhas',
 
-    image: `${frangocastanha}`,
+    image: frangocastanha,
 
     prepTime: '1h 30 minutos',
 
