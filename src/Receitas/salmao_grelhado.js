@@ -15,7 +15,7 @@ function Tortafrango ( ) {
 
     title: 'Salmão Grelhado',
 
-    image: `${salmaofoto}`,
+    image: salmaofoto,
 
     prepTime: '30 minutos',
 
