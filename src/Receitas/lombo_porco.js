@@ -15,7 +15,7 @@ function Lomboporco ( ) {
 
     title: 'Lombo de Porco com Molho de Laranja',
 
-    image: `${lombofoto}`,
+    image: lombofoto,
 
     prepTime: '1h',
 
