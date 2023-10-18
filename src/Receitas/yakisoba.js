@@ -15,7 +15,7 @@ function Yakisoba ( ) {
 
     title: 'Picanha Recheada',
 
-    image: `${yakisoba}`,
+    image: yakisoba,
 
     prepTime: '25 minutos',
 
